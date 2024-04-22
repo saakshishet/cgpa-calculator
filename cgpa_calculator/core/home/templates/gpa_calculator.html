@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GPA Calculator</title>
+</head>
+<body>
+<div id="calculator">
+    <h1 style="color: green;">GPA Calculator</h1>
+    <h2 style="font-family: 'Times New Roman', Times, serif; text-align:center;">Grade Point Average Calculator</h2>
+    <br>
+    <form method="post" action="{% url 'gpa_calculator' %}">
+        {% csrf_token %}
+        <!-- Input fields for grades -->
+        <input type="text" name="grade1" placeholder="Grade for sem 1"><br>
+        <input type="text" name="grade2" placeholder="Grade for sem 2"><br>
+        <input type="text" name="grade3" placeholder="Grade for sem 3"><br>
+        <input type="text" name="grade4" placeholder="Grade for sem 4"><br>
+        <input type="text" name="grade5" placeholder="Grade for sem 5"><br>
+        <input type="text" name="grade6" placeholder="Grade for sem 6"><br>
+        <input type="text" name="grade7" placeholder="Grade for sem 7"><br>
+        <input type="text" name="grade8" placeholder="Grade for sem 8"><br>
+        
+        <button type="submit">Calculate GPA</button>
+    </form>
+     {% if gpa %}
+        <h3>GPA: {{ gpa }}</h3>
+    {% endif %}
+</div>
+</body>
+</html>
